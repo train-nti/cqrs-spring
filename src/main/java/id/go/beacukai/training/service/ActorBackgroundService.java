@@ -26,7 +26,10 @@ public class ActorBackgroundService implements MessageListener {
     @KafkaListener(topics = "#{'${io.confluent.developer.config.topic.name}'}",
     groupId = "actor")
     public void consume(final ConsumerRecord<String, String> consumerRecord) {
+
         logger.info("received {} {}", consumerRecord.key(), consumerRecord.value());
+
+        fetchActor(consumerRecord.value());
     }
 
     @Override

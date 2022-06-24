@@ -35,7 +35,7 @@ public class ActorCommandService {
                 redisTemplate.convertAndSend(
                         "search_engine", actor.toString());
 
-                producer.send(topic.name(), actor.toString()).addCallback(
+                producer.send(topic.name(), actor.getId().toString(), actor.toString()).addCallback(
                         result -> {
                             // final RecordMetadata m;
                             if (result != null) {
