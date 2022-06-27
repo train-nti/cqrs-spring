@@ -62,6 +62,7 @@ public class ActorBackgroundService implements MessageListener {
     }
 
     private void fetchActor(String actor){
+        logger.debug("fetch Actor = " + actor);
         String idx0 = actor.split(" ")[0].substring(0,1);
         String idx1 = actor.split(" ")[1].substring(0,1);
 
